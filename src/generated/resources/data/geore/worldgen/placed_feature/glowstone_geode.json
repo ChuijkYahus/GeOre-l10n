@@ -1,0 +1,28 @@
+{
+  "feature": "geore:glowstone_geode",
+  "placement": [
+    {
+      "type": "geore:configurable_rarity_filter",
+      "base_chance": 180,
+      "ore": "glowstone"
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": 30
+        },
+        "min_inclusive": {
+          "above_bottom": 6
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 package com.shynieke.geore.features;
 
 import com.shynieke.geore.Reference;
+import com.shynieke.geore.worldgen.ConfigurableRarityFilter;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +12,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 public class GeOrePlacedFeatures {
 	public static final ResourceKey<PlacedFeature> ANCIENT_DEBRIS_PLACEMENT_KEY = createPlacedKey("budding_ancient_debris");
@@ -27,6 +27,7 @@ public class GeOrePlacedFeatures {
 		GeOreFeatures.LAPIS_GEORE.setupPlaced(context, 210, 6, 30);
 		GeOreFeatures.QUARTZ_GEORE.setupPlaced(context, 150, 6, 30);
 		GeOreFeatures.REDSTONE_GEORE.setupPlaced(context, 240, 6, 30);
+		GeOreFeatures.GLOWSTONE_GEORE.setupPlaced(context, 180, 6, 30);
 		GeOreFeatures.RUBY_GEORE.setupPlaced(context, 240, 6, 30);
 		GeOreFeatures.SAPPHIRE_GEORE.setupPlaced(context, 240, 6, 30);
 		GeOreFeatures.TOPAZ_GEORE.setupPlaced(context, 240, 6, 30);
@@ -50,7 +51,7 @@ public class GeOrePlacedFeatures {
 
 		Holder<ConfiguredFeature<?, ?>> buddingAncientDebris = holdergetter.getOrThrow(GeOreConfiguredFeatures.ANCIENT_DEBRIS_CONFIGURED_KEY);
 		PlacementUtils.register(context, ANCIENT_DEBRIS_PLACEMENT_KEY, buddingAncientDebris,
-				InSquarePlacement.spread(), PlacementUtils.RANGE_8_8, BiomeFilter.biome(), RarityFilter.onAverageOnceEvery(3));
+				InSquarePlacement.spread(), PlacementUtils.RANGE_8_8, BiomeFilter.biome(), new ConfigurableRarityFilter("ancient_debris", 3));
 
 	}
 
